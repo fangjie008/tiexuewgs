@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiexue.wgs.core.mapper.WgsArticleSubMapper" >
+  <resultMap id="BaseResultMap" type="com.tiexue.wgs.core.entity.WgsArticleSub" >
+    <result column="Id" property="id" jdbcType="INTEGER" />
+    <result column="OriginalContent" property="originalcontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    Id,OriginalContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.tiexue.wgs.core.entity.WgsArticleSub" >
+    insert into WgsArticleSub
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="originalcontent != null" >
+        OriginalContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="originalcontent != null" >
+        #{originalcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
