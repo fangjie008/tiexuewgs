@@ -129,6 +129,8 @@
 	<modules>
 		<module>wgs-base</module>
 		<module>wgs-core</module>
-    <module>wgs-highnavweb</module>
-  </modules>
+
+		
+		<module>wgs-webapi</module>
+	</modules>
 </project>
