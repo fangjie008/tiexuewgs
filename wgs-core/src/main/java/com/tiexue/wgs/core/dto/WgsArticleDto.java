@@ -69,7 +69,7 @@ public class WgsArticleDto {
 
 	private String originalcontent;
 	private List<String> coverimgList;
-
+    private Integer categoryid;
 	public Integer getId() {
 		return id;
 	}
@@ -332,6 +332,14 @@ public class WgsArticleDto {
 
 	public void setCoverimgList(List<String> coverimgList) {
 		this.coverimgList = coverimgList;
+	}
+
+	public Integer getCategoryid() {
+		return categoryid;
+	}
+
+	public void setCategoryid(Integer categoryid) {
+		this.categoryid = categoryid;
 	}
 
 }

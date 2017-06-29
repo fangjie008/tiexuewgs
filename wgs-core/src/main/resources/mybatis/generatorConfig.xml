@@ -66,11 +66,17 @@
 		 <table tableName="demo" domainObjectName="demo" enableCountByExample="false" 
 			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
 			selectByExampleQueryId="false"> </table> 
-<!-- 		<table tableName="WgsArticle" domainObjectName="WgsArticle"
+	<table tableName="WgsArticle" domainObjectName="WgsArticle"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
 		</table>
+			<table tableName="WgsCategory" domainObjectName="WgsCategory"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 	
 		<table tableName="WgsArticleSub" domainObjectName="WgsArticleSub"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
