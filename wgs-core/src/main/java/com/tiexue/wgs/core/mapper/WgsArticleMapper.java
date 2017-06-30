@@ -3,6 +3,8 @@ package com.tiexue.wgs.core.mapper;
 import com.tiexue.wgs.core.entity.WgsArticle;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -50,6 +52,7 @@ public interface WgsArticleMapper {
         "#{categoryid,jdbcType=INTEGER}, #{uscore,jdbcType=INTEGER}, ",
         "#{uniqueflag,jdbcType=VARCHAR})"
     })
+    @Options(useGeneratedKeys=true,keyProperty="id")
     int insert(WgsArticle record);
 
     int insertSelective(WgsArticle record);
@@ -68,6 +71,7 @@ public interface WgsArticleMapper {
     WgsArticle selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(WgsArticle record);
+ 
 
     @Update({
         "update WgsArticle",
@@ -106,4 +110,18 @@ public interface WgsArticleMapper {
         "where Id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(WgsArticle record);
+    
+    
+    @Select({
+        "select",
+        "Id, Title, Intro, CoverImgs, ImgShowType, ContentType, PublisherId, PublisherName, ",
+        "PublisherIcon, ViewCount, DingCount, CaiCount, CommentCount, ShareCount, CollectionCount, ",
+        "ShowTime, CreateTime, Mark, Status, SourceType, Weight, OriginalId, OriginalTitle, ",
+        "OriginalUrl, FromId, FromName, PlatformId, PlatformName, Tags, ContentLen, CategoryId, ",
+        "Uscore, UniqueFlag",
+        "from WgsArticle",
+        "where UniqueFlag = #{uniqueFlag}"
+    })
+    @ResultMap("BaseResultMap")
+    WgsArticle getModelByUniqueFlag(@Param("uniqueFlag")String uniqueFlag);
 }

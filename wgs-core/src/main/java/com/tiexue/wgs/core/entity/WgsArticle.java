@@ -48,7 +48,7 @@ public class WgsArticle {
     private String originalid;
 
     private String originaltitle;
-
+    private String originalContent;
     private String originalurl;
 
     private Integer fromid;
@@ -332,4 +332,13 @@ public class WgsArticle {
     public void setUniqueflag(String uniqueflag) {
         this.uniqueflag = uniqueflag == null ? null : uniqueflag.trim();
     }
+
+	public String getOriginalContent() {
+		return originalContent;
+	}
+
+	public void setOriginalContent(String originalContent) {
+		this.originalContent = originalContent;
+	}
+    
 }
