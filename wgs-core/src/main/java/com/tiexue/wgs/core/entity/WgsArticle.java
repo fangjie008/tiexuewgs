@@ -48,7 +48,7 @@ public class WgsArticle {
     private String originalid;
 
     private String originaltitle;
-    private String originalContent;
+
     private String originalurl;
 
     private Integer fromid;
@@ -68,7 +68,10 @@ public class WgsArticle {
     private Integer uscore;
 
     private String uniqueflag;
-
+    private String ContentPic;
+    private String materials;
+    private String originalContent;
+    private String categoryName;
     public Integer getId() {
         return id;
     }
@@ -340,5 +343,30 @@ public class WgsArticle {
 	public void setOriginalContent(String originalContent) {
 		this.originalContent = originalContent;
 	}
+
+	public String getMaterials() {
+		return materials;
+	}
+
+	public void setMaterials(String materials) {
+		this.materials = materials;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getContentPic() {
+		return ContentPic;
+	}
+
+	public void setContentPic(String contentPic) {
+		ContentPic = contentPic;
+	}
     
+	
 }

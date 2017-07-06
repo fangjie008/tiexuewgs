@@ -24,7 +24,28 @@ public class WgsConstants {
 			put(ArticleStatus_Similarity, "相似文章");
 		}
 	};
-
+	//帖子
+	public static final int SourceType_Forum=1;
+	//资讯
+	public static final int SourceType_News=2;
+	//视频
+	public static final int SourceType_Video=3;
+	//图片
+	public static final int SourceType_Pic=4;
+	/**
+	 * 来源文章类型
+	 */
+	public static Map<Integer,String> SourceType=new HashMap<Integer,String>(){
+		{
+			put(SourceType_Forum,"帖子");
+			put(SourceType_News, "资讯");
+			put(SourceType_Video, "视频");
+			put(SourceType_Pic, "图片");
+		}
+	};
+	
+	
+	
 	public static final int Api_Success = 0;
 	public static final int Api_TextNumberShortByServer = -1;
 	public static final int Api_RepeatContent = -2;

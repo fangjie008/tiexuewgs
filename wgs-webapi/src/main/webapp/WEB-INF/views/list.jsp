@@ -15,14 +15,10 @@
 <link rel="stylesheet" href="<%=path%>/static/css/list.css"/>
    <title>内容接口</title>
 </head>
-<body id="activity-detail" class="zh_CN mm_appmsg">
-<div id="js_article" class="rich_media">
-<p>接口启动</p>
-</div>
+<body >
 
-
-<%@ include file="/WEB-INF/views/include/include_footer.jsp"%>
-    </body>
+<h2>接口启动</h2>
+</body>
 
 </html>
 

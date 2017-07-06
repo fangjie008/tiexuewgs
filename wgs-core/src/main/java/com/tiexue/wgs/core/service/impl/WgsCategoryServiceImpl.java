@@ -42,5 +42,10 @@ public class WgsCategoryServiceImpl implements IWgsCategoryService {
 		return wgsCategoryMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public WgsCategory getModelByName(String name) {
+		return wgsCategoryMapper.getModelByName(name);
+	}
+
 
 }

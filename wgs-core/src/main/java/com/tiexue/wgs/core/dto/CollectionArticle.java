@@ -24,8 +24,10 @@ public class CollectionArticle {
     private Integer sourceType;
     private String videoSrc;
     private Integer videoDuration;
-    private Integer categoryId;
+    private String channelName;
     private boolean coverIsWidePicture;
+    private String materials;
+    private String contentPic;
 	public String getOrignalURL() {
 		return orignalURL;
 	}
@@ -158,11 +160,12 @@ public class CollectionArticle {
 	public void setVideoDuration(Integer videoDuration) {
 		this.videoDuration = videoDuration;
 	}
-	public Integer getCategoryId() {
-		return categoryId;
+	
+	public String getChannelName() {
+		return channelName;
 	}
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
 	}
 	public boolean isCoverIsWidePicture() {
 		return coverIsWidePicture;
@@ -170,6 +173,19 @@ public class CollectionArticle {
 	public void setCoverIsWidePicture(boolean coverIsWidePicture) {
 		this.coverIsWidePicture = coverIsWidePicture;
 	}
+	public String getContentPic() {
+		return contentPic;
+	}
+	public void setContentPic(String contentPic) {
+		this.contentPic = contentPic;
+	}
+	public String getMaterials() {
+		return materials;
+	}
+	public void setMaterials(String materials) {
+		this.materials = materials;
+	}
+
     
     
     

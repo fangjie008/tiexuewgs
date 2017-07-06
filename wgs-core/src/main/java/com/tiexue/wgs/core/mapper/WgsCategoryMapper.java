@@ -3,6 +3,7 @@ package com.tiexue.wgs.core.mapper;
 import com.tiexue.wgs.core.entity.WgsCategory;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -57,4 +58,14 @@ public interface WgsCategoryMapper {
         "where Id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(WgsCategory record);
+    
+    @Select({
+        "select",
+        "Id, Name, CoverImg, Status, Type, Intro, Weight, Tags, ParentId, CreateTime, ",
+        "Remark",
+        "from WgsCategory",
+        "where Name = #{name,jdbcType=VARCHAR}"
+    })
+    @ResultMap("BaseResultMap")
+    WgsCategory getModelByName(@Param("name")String name);
 }

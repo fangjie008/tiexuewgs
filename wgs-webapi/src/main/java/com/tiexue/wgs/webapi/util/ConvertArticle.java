@@ -2,6 +2,7 @@ package com.tiexue.wgs.webapi.util;
 
 import java.util.Date;
 
+
 import com.tiexue.wgs.base.util.DateUtil;
 import com.tiexue.wgs.core.dto.CollectionArticle;
 import com.tiexue.wgs.core.entity.WgsArticle;
@@ -11,7 +12,8 @@ public class ConvertArticle {
 	public static WgsArticle fillArticle(CollectionArticle article){
 		WgsArticle wgsArticle=new WgsArticle();
 		wgsArticle.setCaicount(0);
-		wgsArticle.setCategoryid(article.getCategoryId()==null?0:article.getCategoryId());
+		wgsArticle.setCategoryid(0);
+		wgsArticle.setCategoryName(article.getChannelName()==null?"":article.getChannelName());
 		wgsArticle.setCollectioncount(0);
 		wgsArticle.setCommentcount(0);
 		wgsArticle.setContentlen(article.getArticle()==null?0:article.getArticle().length());
@@ -54,6 +56,8 @@ public class ConvertArticle {
 		wgsArticle.setViewcount(0);
 		wgsArticle.setWeight(0);
 		wgsArticle.setSharecount(0);
+		wgsArticle.setContentPic(article.getContentPic()==null?"[]":article.getContentPic());
+		wgsArticle.setMaterials(article.getMaterials()==null?"{}":article.getMaterials());
 		return wgsArticle;
 		
 	}

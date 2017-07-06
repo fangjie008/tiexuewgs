@@ -2,6 +2,8 @@ package com.tiexue.wgs.core.service;
 
 
 
+
+
 import com.tiexue.wgs.core.entity.WgsCategory;
 
 public interface IWgsCategoryService {
@@ -17,4 +19,6 @@ public interface IWgsCategoryService {
 	    int updateByPrimaryKeySelective(WgsCategory record);
 
 	    int updateByPrimaryKey(WgsCategory record);
+	    
+	    WgsCategory getModelByName(String name);
 }

@@ -1,6 +1,9 @@
 package com.tiexue.wgs.core.mapper;
 
 import com.tiexue.wgs.core.entity.WgsArticle;
+
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
@@ -120,8 +123,44 @@ public interface WgsArticleMapper {
         "OriginalUrl, FromId, FromName, PlatformId, PlatformName, Tags, ContentLen, CategoryId, ",
         "Uscore, UniqueFlag",
         "from WgsArticle",
-        "where UniqueFlag = #{uniqueFlag}"
+        "where UniqueFlag = #{uniqueFlag} limit 0,1"
     })
     @ResultMap("BaseResultMap")
     WgsArticle getModelByUniqueFlag(@Param("uniqueFlag")String uniqueFlag);
+    
+    
+    @Select({
+        "select",
+        "Id, Title, Intro, CoverImgs, ImgShowType, ContentType, PublisherId, PublisherName, ",
+        "PublisherIcon, ViewCount, DingCount, CaiCount, CommentCount, ShareCount, CollectionCount, ",
+        "ShowTime, CreateTime, Mark, Status, SourceType, Weight, OriginalId, OriginalTitle, ",
+        "OriginalUrl, FromId, FromName, PlatformId, PlatformName, Tags, ContentLen, CategoryId, ",
+        "Uscore, UniqueFlag",
+        "from WgsArticle",
+        "where Id = #{id,jdbcType=INTEGER} and status=1"
+    })
+    @ResultMap("BaseResultMap")
+    WgsArticle getModel(@Param("id")int id);
+    
+    @Select({
+        "select",
+        "Id, Title, Intro, CoverImgs, ImgShowType, ContentType, PublisherId, PublisherName, ",
+        "PublisherIcon, ViewCount, DingCount, CaiCount, CommentCount, ShareCount, CollectionCount, ",
+        "ShowTime, CreateTime, Mark, Status, SourceType, Weight, OriginalId, OriginalTitle, ",
+        "OriginalUrl, FromId, FromName, PlatformId, PlatformName, Tags, ContentLen, CategoryId, ",
+        "Uscore, UniqueFlag",
+        "from WgsArticle",
+        "where ${strWhere} order by ShowTime desc limit #{pageNo,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER} "
+    })
+    @ResultMap("BaseResultMap")
+    List<WgsArticle> getList(@Param("strWhere")String strWhere,@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize);
+    
+    
+    @Select({
+        "select",
+        " count(1)",
+        "from WgsArticle",
+        "where ${strWhere} "
+    })
+    int getCount(@Param("strWhere")String strWhere);
 }
