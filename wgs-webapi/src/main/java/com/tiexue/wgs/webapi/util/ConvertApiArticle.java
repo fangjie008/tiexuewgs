@@ -94,7 +94,8 @@ public class ConvertApiArticle {
 	
 		String coverImg="";
 		try {
-			String imgUrl=article.getCoverimgs()==null?"[]":article.getCoverimgs().replace("http:", "https:");
+			//String imgUrl=article.getCoverimgs()==null?"[]":article.getCoverimgs().replace("http:", "https:");
+			String imgUrl=article.getCoverimgs()==null?"[]":article.getCoverimgs();
 			List<String> imgs= JSON.parseObject(imgUrl,new ArrayList<String>().getClass());
 			if(imgs!=null&&imgs.size()>0){
 				coverImg=imgs.get(0);
@@ -106,13 +107,15 @@ public class ConvertApiArticle {
 		apiArticle.setIntro(article.getIntro());
 	
 		try {
-			String contPic=(article.getContentPic()==null?"":article.getContentPic().replace("http:", "https:"));
+			//String contPic=(article.getContentPic()==null?"":article.getContentPic().replace("http:", "https:"));
+			String contPic=(article.getContentPic()==null?"":article.getContentPic());
 			List<ContentPicModel> imgs= JSON.parseObject(contPic,new ArrayList<ContentPicModel>().getClass());
 			apiArticle.setContentPic(imgs);
 		} catch (Exception e) {
 		}
 		try {
-			String materials=(article.getMaterials()==null?"":article.getMaterials().replace("http:", "https:"));
+			//String materials=(article.getMaterials()==null?"":article.getMaterials().replace("http:", "https:"));
+			String materials=(article.getMaterials()==null?"":article.getMaterials());
 			MaterialModel imgs= JSON.parseObject(materials,MaterialModel.class);
 			apiArticle.setMaterials(imgs);
 		} catch (Exception e) {
