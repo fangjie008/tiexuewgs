@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tiexue.wgs.core.entity.WgsArticle;
 import com.tiexue.wgs.core.service.IWgsArticleService;
 import com.tiexue.wgs.webapi.dto.ApiArticle;
@@ -78,7 +79,7 @@ public class DeliciousFoodController {
 			apiResult.setCode(ApiConstants.ResultCode_Error);
 			apiResult.setMsg("获取列表数据异常");
 		}
-		return JSON.toJSONString(apiResult);
+		return JSON.toJSONString(apiResult,SerializerFeature.WriteMapNullValue);
 	}
 	@RequestMapping("recommend")
 	@ResponseBody
@@ -95,7 +96,7 @@ public class DeliciousFoodController {
 			apiResult.setCode(ApiConstants.ResultCode_Error);
 			apiResult.setMsg("获取列表数据异常");
 		}
-		return JSON.toJSONString(apiResult);
+		return JSON.toJSONString(apiResult,SerializerFeature.WriteMapNullValue);
 	}
 	
 	
@@ -109,6 +110,7 @@ public class DeliciousFoodController {
 	@ResponseBody
 	public String getDetail(HttpServletRequest request,HttpServletResponse response){
 		ApiResult apiResult=new ApiResult();
+		JSONObject jObject=new JSONObject();
 		try {
 			String idString=request.getParameter("id");
 			int id=0;
@@ -131,6 +133,7 @@ public class DeliciousFoodController {
 			apiResult.setCode(ApiConstants.ResultCode_Error);
 			apiResult.setMsg("获取详情页数据异常");
 		}
-		return JSON.toJSONString(apiResult);
+
+		return JSON.toJSONString(apiResult,SerializerFeature.WriteMapNullValue);
 	}
 }

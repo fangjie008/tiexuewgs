@@ -41,10 +41,15 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>com.tiexue.wgs</groupId>
 			<artifactId>wgs-core</artifactId>
 			<version>${version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>2.10.2</version>
 		</dependency>
 	</dependencies>
 	<profiles>

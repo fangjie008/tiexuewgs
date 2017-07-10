@@ -7,6 +7,7 @@ import org.apache.log4j.varia.StringMatchFilter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tiexue.wgs.core.entity.WgsArticle;
 import com.tiexue.wgs.webapi.dto.ApiArticle;
 import com.tiexue.wgs.webapi.dto.ApiConstants;
@@ -109,7 +110,7 @@ public class ConvertApiArticle {
 		try {
 			//String contPic=(article.getContentPic()==null?"":article.getContentPic().replace("http:", "https:"));
 			String contPic=(article.getContentPic()==null?"":article.getContentPic());
-			List<ContentPicModel> imgs= JSON.parseObject(contPic,new ArrayList<ContentPicModel>().getClass());
+			List<ContentPicModel> imgs= JSON.parseArray(contPic, ContentPicModel.class);
 			apiArticle.setContentPic(imgs);
 		} catch (Exception e) {
 		}
