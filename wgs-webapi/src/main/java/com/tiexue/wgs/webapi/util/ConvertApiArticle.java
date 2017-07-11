@@ -105,18 +105,18 @@ public class ConvertApiArticle {
 		}
 		apiArticle.setCoverImgs(coverImg);
 		apiArticle.setId(article.getId());
-		apiArticle.setIntro(article.getIntro());
+		apiArticle.setIntro(article.getIntro()==null?"":article.getIntro().replace("&nbsp;"," "));
 	
 		try {
 			//String contPic=(article.getContentPic()==null?"":article.getContentPic().replace("http:", "https:"));
-			String contPic=(article.getContentPic()==null?"":article.getContentPic());
+			String contPic=(article.getContentPic()==null?"":article.getContentPic().replace("&nbsp;"," "));
 			List<ContentPicModel> imgs= JSON.parseArray(contPic, ContentPicModel.class);
 			apiArticle.setContentPic(imgs);
 		} catch (Exception e) {
 		}
 		try {
 			//String materials=(article.getMaterials()==null?"":article.getMaterials().replace("http:", "https:"));
-			String materials=(article.getMaterials()==null?"":article.getMaterials());
+			String materials=(article.getMaterials()==null?"":article.getMaterials().replace("&nbsp;"," "));
 			MaterialModel imgs= JSON.parseObject(materials,MaterialModel.class);
 			apiArticle.setMaterials(imgs);
 		} catch (Exception e) {
