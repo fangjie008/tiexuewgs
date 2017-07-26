@@ -89,7 +89,7 @@ public class DeliciousFoodController {
 			//获取首页幻灯片数据内容
 			List<WgsArticle> slider= iWgsArticleService.getList(null, 0, 6);
 			//获取首页图片展示框的数据内容
-			List<WgsArticle> venues= iWgsArticleService.getList(null, 6, 12);
+			List<WgsArticle> venues= iWgsArticleService.getList("1", 6, 12);
 			apiResult= ConvertApiArticle.fillApiRecommend(slider,venues);
 		} catch (Exception e) {
 			logger.error("getList exception."+e);
